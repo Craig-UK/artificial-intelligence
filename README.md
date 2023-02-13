@@ -1,2 +1,4 @@
 # artificial-intelligence
-Artificial Intelligence module Coursework
+Artificial Intelligence module Coursework.
+
+###### TODO/Features
