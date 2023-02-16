@@ -11,15 +11,15 @@ Artificial Intelligence module Coursework.
 
 #### File Structure
 * src
+  * emojis
+    * angry.png
+    * disgust.png
+    * fear.png
+    * happy.png
+    * neutral.png
+    * sad.png
+    * surprised.png
   * data
-    * emojis
-      * angry.png
-      * disgust.png
-      * fear.png
-      * happy.png
-      * neutral.png
-      * sad.png
-      * surprised.png
     * examples
       * *Example videos to train the AI*
     * test
