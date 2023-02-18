@@ -8,6 +8,7 @@ Artificial Intelligence module Coursework.
 - Numpy
 - Keras
 - Tk Interface
+- scipy
 
 #### File Structure
 * src
