@@ -93,7 +93,7 @@ def show_avatar():
     lmain2.after(10, show_avatar)
         
 
-if __name__ == '__name__':
+if __name__ == '__main__':
     frame_number = 0
     root=tk.Tk()
     lmain = tk.Label(master=root,padx=50,bd=10)
