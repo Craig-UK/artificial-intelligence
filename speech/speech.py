@@ -1,6 +1,7 @@
 import speech_recognition
 import pyttsx3
 import sys
+from textblob import TextBlob
 
 recogniser = speech_recognition.Recognizer()
 
@@ -18,7 +19,23 @@ while True:
                 print('Exiting')
                 sys.exit()
 
-            print(f"Recognised: {text}")
+            blob = TextBlob(text)
+            sentiment = blob.sentiment.polarity
+
+            mood = None
+            if sentiment < -0.5:
+                mood = 'Really Negative'
+            elif sentiment < 0.0:
+                mood = 'Negative'
+            elif sentiment == 0.0:
+                mood = 'Neutral'
+            elif sentiment > 0.0 and sentiment < 0.5:
+                mood = 'Positive'
+            elif sentiment > 0.5:
+                mood = 'Really Positive'
+
+
+            print(f"Recognised: {text}, Sentiment Analysis Score: {sentiment}, What you just said was {mood}")
 
     except speech_recognition.UnknownValueError:
         recogniser = speech_recognition.Recognizer()
