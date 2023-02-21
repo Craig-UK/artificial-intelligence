@@ -77,6 +77,8 @@ def show_subject():
         lmain.configure(image=imgtk)
         root.update()
         lmain.after(10, show_subject)
+        #Line below this is a fix, updates the emoji on every frame
+        lmain.after(10, show_avatar)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         exit()
 
@@ -90,7 +92,7 @@ def show_avatar():
 
     lmain2.configure(image=imgtk2)
     root.update()
-    lmain2.after(10, show_avatar)
+    #lmain2.after(10, show_avatar)
         
 
 if __name__ == '__main__':
