@@ -46,6 +46,6 @@ while True:
     except speech_recognition.UnknownValueError:
         recogniser = speech_recognition.Recognizer()
         print('Audio unkown. Try again.')
-        speaker.say("Audio unkown. Try again.")
+        speaker.say("Audio unknown. Try again.")
         speaker.runAndWait()
         continue
