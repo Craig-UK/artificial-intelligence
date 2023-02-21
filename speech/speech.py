@@ -9,8 +9,11 @@ recogniser = speech_recognition.Recognizer()
 speaker = tts.init()
 speaker.setProperty('rate', 160)
 
+speaker.say("System Running. Say Exit to exit the program. Say anything: ")
+speaker.runAndWait()
+
 while True:
-    print('Please say a sentence: ')
+    print('Say anything: ')
     try:
         with speech_recognition.Microphone() as mic:
             recogniser.adjust_for_ambient_noise(mic, duration=0.2)
@@ -39,8 +42,8 @@ while True:
                 mood = 'Really Positive'
 
 
-            print(f"You just said: {text}, Sentiment Analysis Score: {sentiment}, What you just said was {mood}")
-            speaker.say(f"You just said: {text}, Sentiment Analysis Score: {sentiment}, What you just said was {mood}")
+            print(f"You just said: {text}, Sentiment Analysis Score: {sentiment}, What you just said was {mood}. Say anything: ")
+            speaker.say(f"You just said: {text}, Sentiment Analysis Score: {sentiment}, What you just said was {mood}. Say anything: ")
             speaker.runAndWait()
 
     except speech_recognition.UnknownValueError:
