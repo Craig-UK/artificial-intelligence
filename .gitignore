@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#Ignore model and emojis folder
+src/emojis
+src/model.h5
