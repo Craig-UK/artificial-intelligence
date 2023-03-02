@@ -54,7 +54,7 @@ def show_subject():
     cap1.set(1, frame_number)
     flag1, frame1 = cap1.read()
     frame1 = cv2.resize(frame1,(600,500))
-    bounding_box = cv2.CascadeClassifier("") #paste path to haarcascade_frontalface_default.xml here for you own PC. Should in python/Lib/site-packages/cv2/data/haarcascade_frontalface_default.xml
+    bounding_box = cv2.CascadeClassifier("C:\Python310\Lib\site-packages\cv2\data\haarcascade_frontalface_default.xml") #paste path to haarcascade_frontalface_default.xml here for you own PC. Should in python/Lib/site-packages/cv2/data/haarcascade_frontalface_default.xml
     gray_frame = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
     num_faces = bounding_box.detectMultiScale(gray_frame, scaleFactor=1.3, minNeighbors=5)
     for (x, y, w, h) in num_faces:
