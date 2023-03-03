@@ -11,7 +11,8 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, LSTM
 
 # Load Data
-company = 'GOOG'
+company = input("Please enter ticker for company whose stocks you would like to predict: ")
+company = company.upper()
 
 start = dt.datetime(2012,1,1)
 end = dt.datetime(2020,1,1)
