@@ -43,7 +43,7 @@ show_text=[0]
 global frame_number
 
 def show_subject():
-    cap1 = cv2.VideoCapture(0) # 0 for live webcam capture, if using video from computer give absolute path prefixed by r i.e. (r'C:\Users\....')
+    cap1 = cv2.VideoCapture(r"C:\Users\DevlinCortens\Documents\4th Year University\Trimester B\AI\Project\AI_Project_G6\src\data\examples\production ID 4587767.mp4") # 0 for live webcam capture, if using video from computer give absolute path prefixed by r i.e. (r'C:\Users\....')
     if not cap1.isOpened():
         print("Can't open the camera")
     global frame_number
