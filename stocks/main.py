@@ -10,6 +10,8 @@ from sklearn.preprocessing import MinMaxScaler
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, LSTM
 
+from accuracy import accuracyModel
+
 # Load Data
 company = input("Please enter ticker for company whose stocks you would like to predict: ")
 company = company.upper()
@@ -46,6 +48,9 @@ model.add(Dropout(0.2))
 model.add(Dense(units=1)) # Prediction for next closing value
 
 model.compile(optimizer='adam', loss='mean_squared_error')
+
+accuracyModel(ticker=company)
+
 model.fit(x_train, y_train, epochs=25, batch_size=32)
 
 '''  Test the model accuracy  '''
@@ -93,3 +98,4 @@ real_data = np.reshape(real_data, (real_data.shape[0], real_data.shape[1], 1))
 prediction = model.predict(real_data)
 prediction = scaler.inverse_transform(prediction)
 print(f"For: {company}, prediction for next day stock price is: {prediction}")
+
