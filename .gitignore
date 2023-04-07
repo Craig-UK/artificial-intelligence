@@ -130,3 +130,5 @@ dmypy.json
 
 #Ignore model
 src/model.h5
+
+django-server/server/config.py
