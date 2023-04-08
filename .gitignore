@@ -132,3 +132,6 @@ dmypy.json
 src/model.h5
 
 django-server/server/config.py
+django-server/backend/PythonTesting3.wav
+django-server/media/PythonTesting3.wav
+django-server/backend/media/PythonTesting3.wav
