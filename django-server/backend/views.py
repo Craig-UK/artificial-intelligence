@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from .sentiment import Sentiment
+from .emotion import GetEmotion
 from numpy.random import seed
 from numpy.random import randint
 
@@ -27,3 +28,11 @@ def sentiment_analysis(request):
     new_arr = [int(x) for x in arr]
 
     return JsonResponse({'result': sent, 'nums': new_arr})
+
+@csrf_exempt
+def emotion_analysis(request):
+    body = json.loads(request.body)
+    print(body["emValue"])
+    em = GetEmotion(body["emValue"])
+
+    return JsonResponse({'result': em})

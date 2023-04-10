@@ -6,6 +6,7 @@ const text = 'rgba(255, 255, 255, 0.87)'
 
 const Holder = () => {
     const [value, setValue] = useState('');
+    const [emValue, setEmValue] = useState('');
     const [res, setRes] = useState('');
     const [ticker, setTicker] = useState('');
     const [emotion, setEmotion] = useState('');
@@ -17,6 +18,27 @@ const Holder = () => {
 
     const handleClick = () => {
         submitVideo();
+    }
+
+    const handleClickEmo = () => {
+        submitEmo();
+    }
+
+    const submitEmo = async () => {
+        const creds = { emValue }
+        const data = await fetch("http://127.0.0.1:8000/backend/emotion/", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(creds)
+        })
+
+        const jdata = await data.json()
+
+        console.log(jdata.result)
+
+        setEmotion(jdata.result)
     }
 
     const submitVideo = async () => {
@@ -49,10 +71,18 @@ const Holder = () => {
         <h3>Select video to analyse</h3>
         <Stack spacing={2}>
             <TextField 
-                label="Relative Path of Video" 
+                label="Relative Path of Audio" 
                 variant="outlined"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
+                InputLabelProps={{ style: { color: text } }}
+                sx={{ fieldset: { borderColor: text }, input: { color: text } }}
+            />
+            <TextField 
+                label="Relative Path of Video" 
+                variant="outlined"
+                value={emValue}
+                onChange={(e) => setEmValue(e.target.value)}
                 InputLabelProps={{ style: { color: text } }}
                 sx={{ fieldset: { borderColor: text }, input: { color: text } }}
             />
@@ -64,7 +94,8 @@ const Holder = () => {
                 InputLabelProps={{ style: { color: text } }}
                 sx={{ fieldset: { borderColor: text }, input: { color: text } }}
             />
-            <Button variant='contained' onClick={handleClick}>Analyse</Button>
+            <Button variant='contained' onClick={handleClick}>Sentiment</Button>
+            <Button variant='contained' onClick={handleClickEmo}>Emotion</Button>
             <TextField 
                 label="Sentiment Analysis Score" 
                 variant="outlined"

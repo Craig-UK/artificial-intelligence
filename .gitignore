@@ -135,3 +135,7 @@ django-server/server/config.py
 django-server/backend/PythonTesting3.wav
 django-server/media/PythonTesting3.wav
 django-server/backend/media/PythonTesting3.wav
+django-server/backend/model.h5
+django-server/backend/media/example-video.mp4
+django-server/backend/haarcascade_frontalface_default.xml
+django-server/emotions.db
