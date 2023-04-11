@@ -51,7 +51,7 @@ def GetEmotion(videoname):
 
     
 
-    emoji_dist={0:cur_path+"/emojis2/angry(1).png",1:cur_path+"/emojis2/disgust(1).png",2:cur_path+"/emojis2/fear(1).png",3:cur_path+"/emojis2/happy(1).png",4:cur_path+"/emojis2/neutral(1).png",5:cur_path+"/emojis2/sad(1).png",6:cur_path+"/emojis2/surprised(1).png"}
+    emoji_dist={0:os.path.join(cur_path,"/emojis2/angry(1).png"),1:os.path.join(cur_path,"/emojis2/disgust(1).png"),2:os.path.join(cur_path,"/emojis2/fear(1).png"),3:os.path.join(cur_path,"/emojis2/happy(1).png"),4:os.path.join(cur_path,"/emojis2/neutral(1).png"),5:os.path.join(cur_path,"/emojis2/sad(1).png"),6:os.path.join(cur_path,"/emojis2/surprised(1).png")}
 
     global last_frame1
     last_frame1 = np.zeros((480, 640, 3), dtype=np.uint8)
@@ -225,7 +225,7 @@ def GetEmotion(videoname):
         root.quit()
 
     
-    root=tk.Toplevel()
+    root=tk.Tk()
     lmain = tk.Label(master=root,padx=50,bd=10)
     lmain2 = tk.Label(master=root,bd=10) #emoji
     lmain3 = tk.Label(master=root,bd=10,fg='#CDCDCD',bg='black') #emoji label

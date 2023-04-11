@@ -139,3 +139,4 @@ django-server/backend/model.h5
 django-server/backend/media/example-video.mp4
 django-server/backend/haarcascade_frontalface_default.xml
 django-server/emotions.db
+django-server/backend/media/short-video.mp4
