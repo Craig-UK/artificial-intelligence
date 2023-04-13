@@ -15,6 +15,9 @@ const Holder = () => {
         labels: [],
         datasets: []
     })
+    const [options, setOptions] = useState({
+        plugins: {}
+    })
 
     const handleClick = () => {
         submitVideo();
@@ -22,6 +25,10 @@ const Holder = () => {
 
     const handleClickEmo = () => {
         submitEmo();
+    }
+
+    const handleClickStock = () => {
+        submitTicker();
     }
 
     const submitEmo = async () => {
@@ -39,6 +46,45 @@ const Holder = () => {
         console.log(jdata.result)
 
         setEmotion(jdata.result)
+    }
+
+    const submitTicker = async() => {
+        const creds = { ticker }
+        const data = await fetch("http://127.0.0.1:8000/backend/stocks/", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(creds)
+        })
+        
+        const jdata = await data.json()
+
+        if(jdata.result) {
+            alert("Invalid stock ticker, please enter a valid stock ticker.")
+        }
+        else {
+            setTheData({
+                labels: jdata.original.map((e,i) => i),
+                datasets: [{
+                    label: "Original Predictions",
+                    data: jdata.original
+                },
+                {
+                label: "Weighted Values",
+                data: jdata.predictions 
+                }]
+            })
+
+            setOptions({
+                plugins: {
+                    title: {
+                        display: true,
+                        text: `${ticker.toUpperCase()} Stock Prediction`
+                    }
+                }
+            })
+        }
     }
 
     const submitVideo = async () => {
@@ -96,6 +142,7 @@ const Holder = () => {
             />
             <Button variant='contained' onClick={handleClick}>Sentiment</Button>
             <Button variant='contained' onClick={handleClickEmo}>Emotion</Button>
+            <Button variant='contained' onClick={submitTicker}>Stock</Button>
             <TextField 
                 label="Sentiment Analysis Score" 
                 variant="outlined"
@@ -112,7 +159,7 @@ const Holder = () => {
                 InputLabelProps={{ style: { color: text } }}
                 sx={{ fieldset: { borderColor: text }, input: { color: text } }}
             />
-            <TheChart data={theData} />
+            <TheChart data={theData} options={options} />
         </Stack>
     </Box>
   )

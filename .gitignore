@@ -140,3 +140,5 @@ django-server/backend/media/example-video.mp4
 django-server/backend/haarcascade_frontalface_default.xml
 django-server/emotions.db
 django-server/backend/media/short-video.mp4
+django-server/stock_data.csv
+stocks/stock_data.csv
