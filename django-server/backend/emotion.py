@@ -51,7 +51,7 @@ def GetEmotion(videoname):
 
     
 
-    emoji_dist={0:os.path.join(cur_path,"/emojis2/angry(1).png"),1:os.path.join(cur_path,"/emojis2/disgust(1).png"),2:os.path.join(cur_path,"/emojis2/fear(1).png"),3:os.path.join(cur_path,"/emojis2/happy(1).png"),4:os.path.join(cur_path,"/emojis2/neutral(1).png"),5:os.path.join(cur_path,"/emojis2/sad(1).png"),6:os.path.join(cur_path,"/emojis2/surprised(1).png")}
+    emoji_dist={0:os.path.join(cur_path,"/emojis/angry.png"),1:os.path.join(cur_path,"/emojis/disgust.png"),2:os.path.join(cur_path,"/emojis/fear.png"),3:os.path.join(cur_path,"/emojis/happy.png"),4:os.path.join(cur_path,"/emojis/neutral.png"),5:os.path.join(cur_path,"/emojis/sad.png"),6:os.path.join(cur_path,"/emojis/surprised.png")}
 
     global last_frame1
     last_frame1 = np.zeros((480, 640, 3), dtype=np.uint8)

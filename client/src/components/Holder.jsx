@@ -102,13 +102,13 @@ const Holder = () => {
         console.log(jdata.result)
 
         setRes(jdata.result)
-        setTheData({
+        /* setTheData({
             labels: jdata.nums.map((e,i) => i),
             datasets: [{
                 label: "Testing",
                 data: jdata.nums 
             }]
-        })
+        }) */
     }
   
     return (
