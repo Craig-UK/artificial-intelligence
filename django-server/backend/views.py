@@ -48,3 +48,14 @@ def stock_predict(request):
         original, preds = res
     return JsonResponse({'original': original, 'predictions': preds})
 
+@csrf_exempt
+def all_three(request):
+    body = json.loads(request.body)
+    emotion = GetEmotion("example-video.mp4")
+    sent = Sentiment("PythonTesting3.wav")
+    stocks = Predict(body["ticker"]) #Should be a stock input and an input for the emotion and sentiment values
+    if stocks == "Invalid Ticker":
+        return JsonResponse({'result': 'Failed'})
+    else:
+        original, predictions = stocks
+    return JsonResponse({'original': original, 'predictions': predictions, 'emotion': emotion, 'sentiment': sent})

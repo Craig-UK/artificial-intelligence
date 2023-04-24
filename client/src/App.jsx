@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Holder from './components/Holder'
+import Holder2 from './components/Holder2'
 import './App.css'
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-      <Holder />
+      <Holder2 />
     </div>
   )
 }
