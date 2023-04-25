@@ -25,4 +25,27 @@ def Sentiment(filename):
         blob = TextBlob(text)
         sentiment = blob.sentiment.polarity
 
-        return sentiment
+        sen = ""
+
+        if sentiment >= -1 and sentiment <= -0.75:
+            sen = "Extremely negative"
+        elif sentiment >= -0.74 and sentiment <= -0.50:
+            sen = "Very negative"
+        elif sentiment >= -0.49 and sentiment <= -0.25:
+            sen = "Negative"
+        elif sentiment >= -0.24 and sentiment <= -0.01:
+            sen = "Slightly negative"
+        elif sentiment == 0:
+            sen = "Neutral"
+        elif sentiment >= 0.01 and sentiment <= 0.24:
+            sen = "Slightly positive"
+        elif sentiment >= 0.25 and sentiment <= 0.49:
+            sen = "Positive"
+        elif sentiment >= 0.50 and sentiment <= 0.74:
+            sen = "Very positive"
+        elif sentiment >= 0.75 and sentiment <= 1:
+            sen = "Extremely positive"
+        else:
+            sen = "Error"
+
+        return sen

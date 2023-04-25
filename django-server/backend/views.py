@@ -6,6 +6,7 @@ import json
 from .sentiment import Sentiment
 from .emotion import GetEmotion
 from .stockpredict import Predict
+from .converter import Convert
 from numpy.random import seed
 from numpy.random import randint
 
@@ -51,9 +52,10 @@ def stock_predict(request):
 @csrf_exempt
 def all_three(request):
     body = json.loads(request.body)
-    emotion = GetEmotion("example-video.mp4")
+    Convert("short-video.mp4")
+    emotion = GetEmotion("short-video.mp4")
     sent = Sentiment("PythonTesting3.wav")
-    stocks = Predict(body["ticker"]) #Should be a stock input and an input for the emotion and sentiment values
+    stocks = Predict(ticker=body["ticker"], emotion=emotion, sentiment=sent) #Should be a stock input and an input for the emotion and sentiment values
     if stocks == "Invalid Ticker":
         return JsonResponse({'result': 'Failed'})
     else:

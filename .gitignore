@@ -142,3 +142,4 @@ django-server/emotions.db
 django-server/backend/media/short-video.mp4
 django-server/stock_data.csv
 stocks/stock_data.csv
+django-server/backend/media/*.wav

@@ -61,6 +61,7 @@ const Holder2 = () => {
                 }
             })
 
+            console.log(jdata.sentiment)
             setRes(jdata.sentiment)
             setEmotion(jdata.emotion)
         }
