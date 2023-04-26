@@ -79,7 +79,11 @@ def Predict(ticker: str, emotion: str, sentiment: str):
         #value *= 16 # value *= increment[RESULT FROM ALGORITHM]
         value *= increment[index_inc]
 
-        values = np.sort(value[1])
+        if increment[index_inc] < 0:
+            values = np.sort(value[0])[::-1]
+        else:
+            values = np.sort(value[0])
+
         same_one = []
 
         for i,x in enumerate(pred_month):
