@@ -50,6 +50,7 @@ def Predict(ticker: str, emotion: str, sentiment: str):
     end = dt.datetime.now()
 
     increment = [-48, -40, -32, -24, -16, -8, 8, 16, 24, 32, 40, 48]
+    increment = [-0.3, -0.25, -0.2, -0.15, -0.1, -0.05, 0.05, 0.1, 0.15]
 
     # Write alogirthm here
 
