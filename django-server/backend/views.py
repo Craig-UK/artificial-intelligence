@@ -53,7 +53,7 @@ def stock_predict(request):
 def all_three(request):
     body = json.loads(request.body)
     Convert("short-video.mp4")
-    emotion = GetEmotion("example-video.mp4")
+    emotion = GetEmotion("shocked.mp4")
     sent = Sentiment("PythonTesting3.wav")
     stocks = Predict(ticker=body["ticker"], emotion=emotion, sentiment=sent) #Should be a stock input and an input for the emotion and sentiment values
     if stocks == "Invalid Ticker":

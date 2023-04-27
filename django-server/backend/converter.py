@@ -9,7 +9,7 @@ def Convert(filename):
 
     script_dir = os.path.dirname(__file__)
     rel_path = "media/" + filename
-    rel_path2 = "media/" + "shortvideo.wav"
+    rel_path2 = "media/" + "sentiment.wav"
     abs_file_path = os.path.join(script_dir, rel_path)
     abs_file_path2 = os.path.join(script_dir, rel_path2)
 
