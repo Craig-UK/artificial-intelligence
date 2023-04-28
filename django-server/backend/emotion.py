@@ -111,8 +111,8 @@ def GetEmotion(videoname):
                 lmain.imgtk = imgtk
                 lmain.configure(image=imgtk)
                 root.update()
-                lmain.after(10, show_subject)
-                lmain.after(10, show_avatar)
+                lmain.after(5, show_subject)
+                lmain.after(5, show_avatar)
                 average_mood(show_text[0])
         if cv2.waitKey(1) & 0xFF == ord('q'):
             print('Quitting early, data from interview will not be saved')
