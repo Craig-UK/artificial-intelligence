@@ -144,3 +144,6 @@ django-server/stock_data.csv
 stocks/stock_data.csv
 django-server/backend/media/*.wav
 django-server/backend/media/*.mp4
+client/src/assets/example2.mp4
+client/src/assets/example1.mp4
+client/public/*.mp4

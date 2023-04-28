@@ -52,9 +52,17 @@ def stock_predict(request):
 @csrf_exempt
 def all_three(request):
     body = json.loads(request.body)
-    Convert("short-video.mp4")
-    emotion = GetEmotion("shocked.mp4")
-    sent = Sentiment("PythonTesting3.wav")
+    the_video = ""
+    match body["presNo"]:
+        case 1:
+            the_video = "PresentationA.mp4"
+        case 2:
+            the_video = "PresentationB.mp4"
+        case 3:
+            the_video = "PresentationC.mp4"
+    Convert(the_video)
+    emotion = GetEmotion(the_video)
+    sent = Sentiment("sentiment.wav") #The conversion always overwrites sentiment.wav so sentiment.wav can always be called here
     stocks = Predict(ticker=body["ticker"], emotion=emotion, sentiment=sent) #Should be a stock input and an input for the emotion and sentiment values
     if stocks == "Invalid Ticker":
         return JsonResponse({'result': 'Failed'})

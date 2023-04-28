@@ -16,9 +16,6 @@ import sqlite3
 
 def GetEmotion(videoname):
 
-    con = sqlite3.connect("emotions.db")
-    cur = con.cursor()
-
     cur_path = os.path.dirname(os.path.abspath(__file__))
     
     rel_path = "media/" + videoname
@@ -49,9 +46,7 @@ def GetEmotion(videoname):
 
     emotion_dict =  {0: "   Angry   ", 1: "   Disgusted   ", 2: "   Fearful   ", 3: "   Happy   ", 4: "   Neutral   ", 5: "   Sad   ", 6: "   Surprised   "}
 
-    
-
-    emoji_dist={0:os.path.join(cur_path,"/emojis/angry.png"),1:os.path.join(cur_path,"/emojis/disgust.png"),2:os.path.join(cur_path,"/emojis/fear.png"),3:os.path.join(cur_path,"/emojis/happy.png"),4:os.path.join(cur_path,"/emojis/neutral.png"),5:os.path.join(cur_path,"/emojis/sad.png"),6:os.path.join(cur_path,"/emojis/surprised.png")}
+    emoji_dist={0:os.path.join(cur_path,"emojis/angry.png"),1:os.path.join(cur_path,"emojis/disgust.png"),2:os.path.join(cur_path,"emojis/fear.png"),3:os.path.join(cur_path,"emojis/happy.png"),4:os.path.join(cur_path,"emojis/neutral.png"),5:os.path.join(cur_path,"emojis/sad.png"),6:os.path.join(cur_path,"emojis/surprised.png")}
 
     global last_frame1
     last_frame1 = np.zeros((480, 640, 3), dtype=np.uint8)
@@ -84,7 +79,6 @@ def GetEmotion(videoname):
 
     def show_subject():
         global video_file_name
-        print("Got here", video_file_name)
         if not cap1.isOpened():
             print("Can't open the camera")
         global frame_number
@@ -165,8 +159,6 @@ def GetEmotion(videoname):
         maxValue = max(list1)
 
         index = list1.index(maxValue)
-
-        print(f"List 1 {list1}, Max Value: {maxValue}")
         
         frame3 = cv2.imread(emoji_dist[index])
         frame3 = cv2.cvtColor(frame3, cv2.COLOR_BGR2RGB)
@@ -212,17 +204,6 @@ def GetEmotion(videoname):
 
         print(theMood)
         return theMood
-        #Saves the video name and the average mood
-        """ video_index = videoname.rfind("/")
-        dot_index = videoname.rfind(".")
-        print(video_index)
-        video_name = videoname[video_index + 1: dot_index]
-        print(f'theMOOD: {theMood}, video_name: {video_name}')
-        cur.execute("INSERT INTO moods (MOOD, NAME) VALUES (?, ?)", (theMood, video_name))
-        con.commit()
-        root.quit() """
-        root.update()
-        root.quit()
 
     
     root=tk.Tk()

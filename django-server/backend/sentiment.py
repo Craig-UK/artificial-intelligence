@@ -8,13 +8,9 @@ import os
 def Sentiment(filename):
     r = sr.Recognizer()
 
-    print(filename)
-
     script_dir = os.path.dirname(__file__)
     rel_path = "media/" + filename
     abs_file_path = os.path.join(script_dir, rel_path)
-
-    print( abs_file_path)
 
     audio_file = sr.AudioFile(abs_file_path)
 

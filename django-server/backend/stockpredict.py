@@ -39,7 +39,10 @@ def CalcWeights(emotion: str, sentiment: str):
 
     print(res)
 
-    return res - 1
+    if res == 0:
+        return res
+    else:
+        return res - 1
 
 
 
@@ -49,8 +52,8 @@ def Predict(ticker: str, emotion: str, sentiment: str):
     start = dt.datetime(2020, 1, 1)
     end = dt.datetime.now()
 
-    increment = [-48, -40, -32, -24, -16, -8, 8, 16, 24, 32, 40, 48]
-    #increment = [-0.3, -0.25, -0.2, -0.15, -0.1, -0.05, 0.05, 0.1, 0.15]
+    #increment = [-48, -40, -32, -24, -16, -8, 8, 16, 24, 32, 40, 48]
+    increment = [-0.30, -0.25, -0.20, -0.15, -0.10, -0.05, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30]
 
     # Write alogirthm here
 
@@ -74,11 +77,12 @@ def Predict(ticker: str, emotion: str, sentiment: str):
         full_arr = []
         for x in pred_month:
             old_arr.append(x)
-        for x in predictions["yhat"][-120:]:
+        for x in predictions["yhat"][-(120 + 30):]:
             full_arr.append(x)
+        original_values = full_arr.copy()
         value = np.random.dirichlet((2, 16), 30).transpose()
         #value *= 16 # value *= increment[RESULT FROM ALGORITHM]
-        value *= increment[index_inc]
+        value *= original_values[119] * increment[index_inc]
 
         if increment[index_inc] < 0:
             values = np.sort(value[0])[::-1]
@@ -92,9 +96,9 @@ def Predict(ticker: str, emotion: str, sentiment: str):
                 same_one.append(x)
             else:
                 same_one.append(x + values[i])
-        original_values = full_arr.copy()
+        
         full_arr[-30:] = same_one
 
-        return original_values, full_arr
+        return original_values[-60:], full_arr[-60:]
     except:
         return "Invalid Ticker"
