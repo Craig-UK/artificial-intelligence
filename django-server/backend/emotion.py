@@ -130,6 +130,7 @@ def GetEmotion(videoname):
         root.update()
         #lmain2.after(10, show_avatar)
 
+    #Returns average mood for each frame in video
     def average_mood(numberIn):
         global angry
         global happy
@@ -170,6 +171,7 @@ def GetEmotion(videoname):
         lmain4.configure(image=imgtk3)
         root.update()
 
+    #Returns the emotion when program closes
     def write_emotion():
         global angry
         global happy

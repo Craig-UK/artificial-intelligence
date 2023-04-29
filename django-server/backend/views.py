@@ -12,7 +12,7 @@ from numpy.random import randint
 
 seed(50)
 
-# Create your views here.
+# TEST ENDPOINT USED DURING TESTING
 @csrf_exempt
 def say_hello(request):
     body = json.loads(request.body)
@@ -49,6 +49,8 @@ def stock_predict(request):
         original, preds = res
     return JsonResponse({'original': original, 'predictions': preds})
 
+
+#ENDPOINT WHICH RUNS ENTIRE SYSTEM
 @csrf_exempt
 def all_three(request):
     body = json.loads(request.body)

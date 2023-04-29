@@ -55,8 +55,6 @@ def Predict(ticker: str, emotion: str, sentiment: str):
     #increment = [-48, -40, -32, -24, -16, -8, 8, 16, 24, 32, 40, 48]
     increment = [-0.30, -0.25, -0.20, -0.15, -0.10, -0.05, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30]
 
-    # Write alogirthm here
-
     index_inc = CalcWeights(emotion=emotion, sentiment=sentiment)
 
     print(index_inc)

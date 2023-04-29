@@ -1,9 +1,5 @@
 from pydub import AudioSegment
 import os
-# Might need to put path in here for local machine 
-# AudioSegment.converter = "C:\\FFMPEG_Files\\ffmpeg.exe"
-# AudioSegment.ffmpeg = "C:\\FFMPEG_Files\\ffmpeg.exe"
-# AudioSegment.ffprobe = "C:\\FFMPEG_Files\\ffprobe.exe"
 
 def Convert(filename):
 
