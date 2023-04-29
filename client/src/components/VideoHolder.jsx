@@ -15,7 +15,7 @@ const VideoHolder = () => {
                 <source src="../../PresentationA.mp4" type="video/mp4" />
             </video>
             <hr/>
-            <h3>Presentation A</h3>
+            <h3>Presentation B</h3>
             <video controls>
                 <source src="../../PresentationB.mp4" type="video/mp4" />
             </video>
